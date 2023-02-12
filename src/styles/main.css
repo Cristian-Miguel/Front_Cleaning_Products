@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Roboto:wght@100&display=swap');
+
+body, html, div#root{
+    width: 100%;
+    min-height: 1000px;
+    height: 100%;
+    margin: 0;
+    background-color: #f7f7f6;
+    font-family: 'DM Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* .color1 { #e6e8e3 };
+.color2 { #d7dacf };
+.color3 { #bec3bc };
+.color4 { #8f9a9c };
+.color5 { #65727a }; */
+

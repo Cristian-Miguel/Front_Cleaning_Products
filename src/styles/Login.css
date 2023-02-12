@@ -1,0 +1,19 @@
+html, body, #root, #Login {
+    height: 100%; 
+}
+
+#Login{
+    width: 100%;
+    min-width: 1700px;
+    min-height: 1000px;
+    color: gray;
+    background-color: whitesmoke;
+    font-family: 'Roboto', sans-serif;
+}
+
+#Login .login_Image{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+}
