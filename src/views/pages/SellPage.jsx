@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { kaReducer, Table, useTable } from 'ka-table';
+import { kaReducer, Table } from 'ka-table';// useTable
 import { closeRowEditors, openRowEditors, saveRowEditors } from 'ka-table/actionCreators';
 import { DataType, PagingPosition } from 'ka-table/enums';
 import { search } from 'ka-table/actionCreators';
@@ -90,7 +90,7 @@ const tablePropsInit = {
 };
 
 const SellPage = () => {
-  const table = useTable();
+  // const table = useTable();
   const [tableProps, changeTableProps] = useState(tablePropsInit);
   const dispatch = (action) => {
     changeTableProps((prevState) => kaReducer(prevState, action));
