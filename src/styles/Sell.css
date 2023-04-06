@@ -1,7 +1,7 @@
 div#Sell{
     display: flex;
     width: 100%;
-    min-height: 1300px;
+    /* min-height: 1300px; */
     flex-direction: column;
     background-color: #f7f7f6;
 }
@@ -9,6 +9,25 @@ div#Sell{
 div#Sell .title{
     margin: 50px 5% 0 5%;
     font-weight: bolder;
+}
+
+div#Sell .tablecomponents{
+    padding-top: 10px;
+}
+
+div#Sell .search{
+    /* background-color: whitesmoke; */
+    background-color: rgba(255, 255, 255, 0.7);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    width: 350px;
+}
+
+div#Sell .tablecomponents{
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 div#Sell .table{

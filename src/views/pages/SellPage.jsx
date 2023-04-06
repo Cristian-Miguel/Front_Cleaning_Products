@@ -4,6 +4,8 @@ import { closeRowEditors, openRowEditors, saveRowEditors } from 'ka-table/action
 import { DataType, PagingPosition } from 'ka-table/enums';
 import { search } from 'ka-table/actionCreators';
 import TextField from '@mui/material/TextField';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from '../helpers/themes';
 import '../../styles/Sell.css'
 
 const dataArray = Array(119)
@@ -97,11 +99,22 @@ const SellPage = () => {
   };
   return(
     <div id='Sell'>
+      <ThemeProvider theme={theme}>
       <h1 className='title'>Products sold</h1>
-      <div className='table'>
-        <TextField type='search' id="standard-basic" label="search" variant="standard" defaultValue={tableProps.searchText} onChange={(event) => {
-          dispatch(search(event.currentTarget.value));
-        }}/>
+        <div className='table'>
+        <div className='tablecomponents'>
+          <TextField 
+            id="outlined-basic"
+            type='search'
+            label="search"
+            variant="filled"
+            className='search'
+            defaultValue={tableProps.searchText}
+            onChange={(event) => {
+              dispatch(search(event.currentTarget.value));
+            }}
+          />
+        </div>
         <Table
           width='100%!'
           height='100%!'
@@ -131,6 +144,7 @@ const SellPage = () => {
         />
       </div>
       <footer></footer>
+      </ThemeProvider>
     </div>
   )
 }

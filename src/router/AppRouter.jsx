@@ -12,8 +12,14 @@ const AppRouter = () => {
             <Routes>
                 <Route path="Login" element={<Login/>} />
                 <Route path="/"     element={<Main/>} />
+                <Route path="Home" element={<Main/>} />
+                <Route path="Management" element={<Admin/>} />
+
                 <Route path="Sell"  element={<Sell/>} />
+                <Route path="Customer"  element={<Sell/>} />
+
                 <Route path="Admin" element={<Admin/>} />
+                <Route path="Management" element={<Admin/>} />
             </Routes>
         </>
     )
