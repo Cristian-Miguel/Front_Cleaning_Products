@@ -77,7 +77,7 @@ function Navbar() {
       <List sx={{ marginLeft: '15px', marginRight: '15px' }}>
         {['Products', 'Inventory'].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
+            <ListItemButton href={'/'+text}>
               <ListItemIcon>
                 { Icons[2][index] }
               </ListItemIcon>
@@ -90,7 +90,7 @@ function Navbar() {
       <List sx={{ marginLeft: '15px', marginRight: '15px' }}>
         {['Formula', 'New_product'].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
+            <ListItemButton href={'/'+text}>
               <ListItemIcon>
                 { Icons[3][index] }
               </ListItemIcon>
@@ -103,7 +103,7 @@ function Navbar() {
       <List sx={{ marginLeft: '15px', marginRight: '15px' }}>
         {['Raw_material', 'Provider'].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
+            <ListItemButton href={'/'+text}>
               <ListItemIcon>
                 { Icons[4][index] }
               </ListItemIcon>
@@ -116,7 +116,7 @@ function Navbar() {
       <List sx={{ marginLeft: '15px', marginRight: '15px' }}>
         {['Users'].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
+            <ListItemButton href={'/'+text}>
               <ListItemIcon>
                 { Icons[5][index] }
               </ListItemIcon>
