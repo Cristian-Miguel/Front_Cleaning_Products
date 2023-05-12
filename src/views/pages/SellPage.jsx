@@ -5,6 +5,7 @@ import { DataType, PagingPosition } from 'ka-table/enums';
 import { search } from 'ka-table/actionCreators';
 import TextField from '@mui/material/TextField';
 import { ThemeProvider } from '@mui/material/styles';
+import { deleteRow } from 'ka-table/actionCreators';
 import theme from '../helpers/themes';
 import '../../styles/Sell.css'
 
@@ -62,6 +63,19 @@ const SaveButton = ({
         }}
       />
    </div >
+ );
+};
+
+const DeleteRow = ({
+  dispatch, rowKeyValue,
+}) => {
+ return (
+    <img
+      src='static/icons/delete.svg'
+      className='delete-row-column-button'
+      onClick={() => dispatch(deleteRow(rowKeyValue))}
+      alt=''
+    />
  );
 };
 
