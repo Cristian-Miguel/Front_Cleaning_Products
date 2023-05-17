@@ -76,7 +76,7 @@ const headCells = [
     id: 'name',
     numeric: false,
     disablePadding: true,
-    label: 'Dessert (100g serving)',
+    label: 'User',
   },
   {
     id: 'calories',
@@ -116,10 +116,10 @@ function EnhancedTableHead(props) {
       <TableRow>
         {headCells.map((headCell) => (
           <TableCell
-            
+            sx={{fontWeight:900, fontSize: 20}}
             key={headCell.id}
             align={headCell.numeric ? 'right' : 'left'}
-            padding={headCell.disablePadding ? 'none' : 'normal'}
+            padding='normal'
             sortDirection={orderBy === headCell.id ? order : false}
           >
             <TableSortLabel
@@ -136,7 +136,7 @@ function EnhancedTableHead(props) {
             </TableSortLabel>
           </TableCell>
         ))}
-        <TableCell align="right" >
+        <TableCell align="right" sx={{fontWeight:900, fontSize: 20}}>
               Actions
         </TableCell>
       </TableRow>
@@ -210,18 +210,16 @@ EnhancedTableHead.propTypes = {
 
 export default function EnhancedTable() {
   const [order, setOrder] = React.useState('asc');
-  const [orderBy, setOrderBy] = React.useState('calories');
-  // const [selected, setSelected] = React.useState([]);
+  const [orderBy, setOrderBy] = React.useState('');
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  // const [DeleteRow, setDeleteRow ] = React.useState();
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
   };
-
-  // const handleSelectAllClick = (event) => {
   //   if (event.target.checked) {
   //     const newSelected = rows.map((n) => n.name);
   //     setSelected(newSelected);
@@ -257,6 +255,10 @@ export default function EnhancedTable() {
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
+  };
+
+  const handleDeleteRow = (event) => {
+    console.log(event)
   };
 
   const emptyRows =
@@ -299,7 +301,6 @@ export default function EnhancedTable() {
                       role="checkbox"
                       tabIndex={-1}
                       key={row.name}
-                      sx={{ cursor: 'pointer' }}
                     >
                       {/* <TableCell padding="checkbox">
                       </TableCell> */}
@@ -307,20 +308,21 @@ export default function EnhancedTable() {
                         component="th"
                         id={labelId}
                         scope="row"
-                        padding="none"
+                        padding='normal'
+                        sx={{fontWeight:600, fontSize: 15}}
                       >
                         {row.name}
                       </TableCell>
-                      <TableCell align="right">{row.calories}</TableCell>
-                      <TableCell align="right">{row.fat}</TableCell>
-                      <TableCell align="right">{row.carbs}</TableCell>
-                      <TableCell align="right">{row.protein}</TableCell>
-                      <TableCell align="right">
+                      <TableCell align="right" sx={{fontWeight:600, fontSize: 15}}>{row.calories}</TableCell>
+                      <TableCell align="right" sx={{fontWeight:600, fontSize: 15}}>{row.fat}</TableCell>
+                      <TableCell align="right" sx={{fontWeight:600, fontSize: 15}}>{row.carbs}</TableCell>
+                      <TableCell align="right" sx={{fontWeight:600, fontSize: 15}}>{row.protein}</TableCell>
+                      <TableCell align="right" sx={{fontWeight:600, fontSize: 15}}>
                       <Tooltip title="Edit user">
                         <IconButton aria-label="edit"> <EditIcon/> </IconButton>
                       </Tooltip>
                       <Tooltip title="Delete user">
-                        <IconButton aria-label="delete"> <DeleteIcon/> </IconButton>
+                        <IconButton aria-label="delete" onClick={handleDeleteRow}> <DeleteIcon/> </IconButton>
                       </Tooltip>
                       </TableCell>
                     </TableRow>
@@ -339,6 +341,7 @@ export default function EnhancedTable() {
             </Table>
           </TableContainer>
           <TablePagination
+            sx={{fontWeight:600, fontSize: 14}}
             rowsPerPageOptions={[10, 25, 50]}
             component="div"
             count={rows.length}
